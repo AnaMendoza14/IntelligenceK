@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../static/bulma.min.css">
+    <link rel="stylesheet" href="../static/dashboard.css">
+
+    <script type="text/javascript" src="../static/fontawesome.js"></script>
+    <script type="text/javascript" src="../static/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/jquery.knob.min.js"></script>
+    <script type="text/javascript" src="../static/dashboard.js"></script>
+
+    <title>Smart Plant Management</title>
+  </head>
+
+  <body>
+    <!-- Menu de arriba ------>
+    <nav class="navbar is-white topNav">
+			<div class="container">
+				<div class="navbar-brand">
+					<a class="navbar-item">
+						<img src="../static/images/cx_logo_color.png" width="112" height="100">
+					</a>
+
+                <div class="navbar-burger burger" data-target="mainNav">
+                    <span></span>
+                    <span></span>
+                </div>
+				</div>
+
+            <div id="mainNav" class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item" href="/">
+                        Home
+                    </a>
+                    <div class="navbar-item">
+                        <a class="navbar-link" href="/NewTab">
+                            New Tab
+                        </a>
+                        <div class="navbar-item">
+                            <a class="navbar-link" href="/help">
+                                Help
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </nav>
+        <!-- se acaba Menu de arriba ------>
+
+    <br>
+
+    <!-- titulo azul -------->
+    <div class="container">
+      <div class="columns">
+        <div class="column is-12">
+
+          <section class="hero is-info welcome is-small">
+            <div class="hero-body">
+              <div class="container">
+                <h1 class="title"> Thermal Load Calculation </h1>
+                <h2 class="subtitle"> Please provide the following values to calculate the Thermal load </h2>
+              </div>
+            </div>
+          </section>
+          <!--  se acaba titulo azul -------->
+
+          <!--  graficas y botones -------->
+          <br>
+          <section class="info-tiles">
+            <form method="post" action="/NewTabResult">
+
+            <div class="columns is-mobile is-centered">
+                    <label class="label">Oven Diameter</label>
+            </div>
+
+            <div class="columns is-mobile is-centered">
+                <article class="field has-addons">
+                    <p class="control">
+                        <input name="OvenDiameter" type="text" class="input" placeholder="Oven Diameter">
+                    </p>
+                    <p class="control">
+                        <span class="select">
+                            <select name="unitOD">
+                                <option>meters</option>
+                                <option>centimeters</option>
+                            </select>
+                        </span>
+                    </p>
+                </article>
+            </div>
+            <br><br>
+            <div class="columns is-mobile is-centered">
+                    <label class="label">Refractory Thickness</label>
+            </div>
+            <div class="columns is-mobile is-centered">
+                <article class="field has-addons">
+                    <p class="control">
+                        <input name="RefractoryThickness" type="text" class="input" placeholder="Refractory Thickness" >
+                    </p>
+                    <p class="control">
+                        <span class="select">
+                            <select name="unitRT">
+                                <option value='meters'>meters</option>
+                                <option value='centimeters'>centimeters</option>
+                            </select>
+                        </span>
+                    </p>
+                </article>
+            </div>
+
+            <br>
+
+              <div class="columns">
+                <div class="column is-half is-offset-one-quarter is-redondito">
+                  <div class="field is-grouped-multiline">
+                    <!--a href="/"><input class="button is-warning" type="button" value="Live"></a --->
+                    <input class="button is-warning" type="submit" value="Submit" name="submit">
+                  </div>
+                </div>
+              </div>
+
+            </form>
+        </section>
+
+        <br>
+
+        <!--   subtitulo model output ------->
+          <section class="hero is-fullwidth is-small">
+            <div class="hero-body is-ventures is-small">
+                <div class="container">
+                    <h1 class="title white-text"> Model Output </h1>
+                </div>
+            </div>
+
+            <div class="hero-foot">
+              <nav class="tabs is-boxed is-fullwidth is-large">
+                <div class="container">
+                    <div class="tab is-active">
+                        <a>Thermal Load</a>
+                    </div>
+                </div>
+              </nav>
+            </div>
+
+            <div class= "box is-dark border">
+                <div class="columns is-gapless is-multiline has-text-centered">
+                    <div class="column is-centered is-dark">
+                        <p class="title white-text"> {{Result_pred}} </p>
+                        <p class="subtitle gray-text"> Gcal/hm2 </p>
+                    </div>
+                </div>
+            </div>
+
+          </section>
+        <!--   se acaba subtitulo model output ------->
+
+
+        </div>
+      </div>
+    </div>
+<!--                         ------->
+
+
+
+    <!-- Footer -->
+    <br>
+    <footer class="footer is-light">
+      <div class="content has-text-centered">
+        <p>App by CXV's <strong>Cognitive Team</strong>. Copyright CEMEX(c) 2019</p>
+        <p class="mini-text">
+          Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br>
+          The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.<br>
+          THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+        </p>
+      </div>
+    </footer>
+    <!-- Footer End-->
+
+
+    <script type="text/javascript" src="../static/dashboard.js"></script>
+
+  </body>
+
+</html>
